@@ -2,9 +2,9 @@
 
 # Image & Speech Processing Studio
 
-### Digital Signal Processing (DSP) Desktop Application
+### Digital Signal Processing Desktop Application
 
-A PyQt5 desktop studio for demonstrating practical DSP concepts through image processing, speech/audio filtering, signal visualization, and automatic PDF report generation.
+A modern PyQt5 studio for practical DSP experiments across image processing, speech/audio filtering, visualization, and automatic PDF report generation.
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyQt5](https://img.shields.io/badge/PyQt5-Desktop%20GUI-41CD52?style=for-the-badge&logo=qt&logoColor=white)
@@ -22,96 +22,153 @@ A PyQt5 desktop studio for demonstrating practical DSP concepts through image pr
 
 ---
 
-## Project Overview
+## Project Preview
 
-Image & Speech Processing Studio is an academic desktop application built to connect DSP theory with hands-on experimentation. It provides an interactive dark-themed GUI where users can load images or WAV audio, apply DSP operations, visualize before/after results, and export a structured PDF report for documentation.
+| What This Project Shows | Why It Matters |
+| --- | --- |
+| Image processing in a real desktop GUI | Demonstrates DSP concepts through visual before/after results. |
+| Speech/audio filtering and playback | Connects filter design to audible and visual signal changes. |
+| Waveform and spectrogram visualization | Makes time-domain and frequency-domain behavior easier to understand. |
+| Automatic PDF reporting | Converts experiments into academic-ready documentation. |
+| Organized release workflow | Keeps source, docs, samples, reports, and executable distribution clean. |
 
-The project is intended for portfolio presentation, university submission, and continued open-source improvement.
+**Quick links:** [Use Cases](docs/use-cases.md) · [Screenshots Guide](docs/screenshots.md) · [Workflow](docs/workflow.md) · [Release Notes](releases/RELEASE_NOTES.md) · [Generated Reports](docs/generated-reports)
+
+> Screenshot note: no real GUI screenshots were included in the provided project folder. The screenshot gallery below is prepared with exact paths and capture guidance, but it intentionally avoids fake UI images.
+
+## Screenshots Gallery
+
+| Category | Target Screenshot | Recommended Path | Status |
+| --- | --- | --- | --- |
+| Main GUI | Full PyQt5 application window | `assets/screenshots/gui/main-gui.png` | Pending real capture |
+| Main GUI | Splash screen | `assets/screenshots/gui/splash-screen.png` | Pending real capture |
+| Image Processing Tab | Loaded image with controls | `assets/screenshots/image-processing/image-tab.png` | Pending real capture |
+| Image Noise Reduction | Gaussian or median before/after | `assets/screenshots/image-processing/noise-reduction.png` | Pending real capture |
+| Edge Detection | Sobel or Canny output | `assets/screenshots/image-processing/edge-detection.png` | Pending real capture |
+| Audio Processing Tab | Loaded WAV workflow | `assets/screenshots/audio-processing/audio-tab.png` | Pending real capture |
+| Audio Waveform Visualization | Input/output waveform plots | `assets/screenshots/audio-processing/waveform-visualization.png` | Pending real capture |
+| Spectrogram Analysis | Input/output spectrogram plots | `assets/screenshots/audio-processing/spectrogram-analysis.png` | Pending real capture |
+| PDF Report Export | Export dialog or report preview | `assets/screenshots/reports/pdf-export.png` | Pending real capture |
+| Application Release | GitHub Release executable asset | `assets/screenshots/reports/release-download.png` | Pending after publishing |
+| Project Folder Structure | Clean GitHub repository layout | `assets/screenshots/workflow/project-structure.png` | Pending real capture |
+
+Detailed capture guidance lives in [`docs/screenshots.md`](docs/screenshots.md).
+
+<details>
+<summary>Screenshot folders</summary>
+
+```text
+assets/screenshots/
+├── gui/
+├── image-processing/
+├── audio-processing/
+├── reports/
+└── workflow/
+```
+
+</details>
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+    A["User Input"] --> B{"Image / Audio Module"}
+    B --> C["Image Module"]
+    B --> D["Audio Module"]
+    C --> E["DSP Algorithms"]
+    D --> E
+    E --> F["Visualization"]
+    F --> G["Save Output"]
+    G --> H["Export PDF Report"]
+```
+
+See the full workflow explanation in [`docs/workflow.md`](docs/workflow.md).
 
 ## Key Features
 
 | Area | Implemented Capabilities |
 | --- | --- |
-| Image processing | Image loading, grayscale conversion, median filtering, Gaussian filtering, Sobel edge detection, Canny edge detection, histogram equalization, live preview, presets, output saving |
-| Speech/audio processing | WAV loading, mono conversion, low-pass filtering, high-pass filtering, band-pass filtering, speech noise-reduction preset, 50 Hz hum-reduction preset, output saving |
+| Image Processing | Load images, grayscale conversion, median filter, Gaussian filter, Sobel edge detection, Canny edge detection, histogram equalization, live preview, save processed image |
+| Speech Processing | Load WAV, mono conversion, low-pass filter, high-pass filter, band-pass filter, speech noise-reduction preset, 50 Hz hum-reduction preset, audio playback, save filtered WAV |
 | Visualization | Input/output image preview, waveform plots, spectrogram plots, processing log |
-| Reporting | Automatic PDF export with selected parameters, image results, audio waveforms, and spectrograms |
-| Desktop experience | Modern dark purple PyQt5 interface, splash screen, toolbar actions, audio playback controls |
+| Reporting | Automatic PDF export with settings, image results, audio waveforms, and spectrograms |
+| Desktop Experience | PyQt5 GUI, modern dark purple theme, splash screen, toolbar actions, release-ready executable workflow |
+
+Planned extensions include average filtering, bilateral filtering, Laplacian edge detection, and a dedicated band-stop/notch filter.
+
+## Real-World Use Cases
+
+| Domain | Example Use Cases |
+| --- | --- |
+| Image Processing | Remove noise from grayscale images, compare Gaussian vs median filters, detect object edges with Canny/Sobel, enhance contrast with histogram equalization, prepare images for computer vision workflows |
+| Speech / Audio Processing | Reduce high-frequency noise, reduce low-frequency hum, demonstrate 50 Hz interference handling, isolate useful speech ranges with band-pass filtering, compare original and filtered audio |
+| Visualization | Compare input/output waveforms, study spectrogram behavior, observe frequency components before and after filtering, teach time-domain vs frequency-domain analysis |
+| Report Generation | Export automatic lab reports, document DSP experiments, save processed results for academic submission, create before/after analysis reports |
+| Deployment | Run without Python using the executable, share through GitHub Releases, present the repository as a LinkedIn/CV portfolio project |
+
+Read the full use-case matrix in [`docs/use-cases.md`](docs/use-cases.md).
 
 ## Image Processing Module
 
-The image module uses OpenCV and NumPy to process grayscale image data through common DSP and computer vision operations:
+The image module uses OpenCV and NumPy to process grayscale image data through practical DSP operations:
 
 - Load PNG, JPG, JPEG, and BMP images.
-- Convert input images to grayscale for consistent processing.
-- Apply median and Gaussian filters for noise reduction.
+- Convert input images to grayscale.
+- Apply median and Gaussian filters for denoising.
 - Apply Sobel and Canny operators for edge detection.
 - Apply histogram equalization for contrast enhancement.
-- Adjust kernel size, Gaussian sigma, and Canny thresholds.
-- Save processed output images as PNG or JPG.
+- Tune kernel size, Gaussian sigma, and Canny thresholds.
+- Save processed results as PNG or JPG.
 
 ## Speech Processing Module
 
-The speech/audio module uses SciPy, SoundFile, SoundDevice, NumPy, and Matplotlib:
+The audio module uses SciPy, SoundFile, SoundDevice, NumPy, and Matplotlib:
 
 - Load WAV files and convert stereo audio to mono.
-- Normalize audio safely before processing and playback.
+- Normalize audio before processing and playback.
 - Apply Butterworth low-pass, high-pass, and band-pass filters.
 - Use zero-phase filtering with `scipy.signal.filtfilt`.
-- Use presets for speech noise reduction and low-frequency hum reduction.
+- Use presets for speech noise reduction and 50 Hz hum reduction.
 - Compare input/output waveforms and spectrograms.
-- Play input and processed audio directly from the GUI.
+- Play input and processed audio from the GUI.
 - Save filtered audio as WAV.
 
-## GUI Features
+## Report Generation
 
-- PyQt5 desktop interface with a polished dark purple theme.
-- Split image preview for input and processed output.
-- Live image update mode for parameter tuning.
-- Compact controls for filtering modes and presets.
-- Audio playback buttons for input, output, and stop.
-- Built-in processing log for user feedback.
-- Splash screen and application identity metadata.
-
-## DSP Techniques Implemented
-
-| Category | Techniques |
-| --- | --- |
-| Image DSP | Spatial filtering, grayscale conversion, median denoising, Gaussian smoothing, Sobel gradient magnitude, Canny edge detection, histogram equalization |
-| Audio DSP | Sampling-rate aware filtering, Butterworth IIR filter design, low-pass filtering, high-pass filtering, band-pass filtering, zero-phase filtering, waveform analysis, spectrogram analysis |
-| Reporting | ReportLab PDF generation, embedded processed images, embedded Matplotlib plots |
-
-## PDF Report Generation
-
-The application can export an automatic PDF report containing:
+The application can export a PDF report containing:
 
 - Project identity, course, supervisor, and team metadata.
-- Selected image processing method and parameters.
+- Selected image method and parameters.
 - Selected audio filter settings and order.
 - Input and output image results.
 - Input/output audio waveforms.
 - Input/output spectrograms.
 
-Generated report examples are available in [`docs/generated-reports`](docs/generated-reports).
+Generated examples are available in [`docs/generated-reports`](docs/generated-reports).
 
-## Screenshots
+## Demo
 
-No final GUI screenshots were included in the original folder. The screenshot folder is ready at [`assets/screenshots`](assets/screenshots), with naming guidance in [`assets/screenshots/README.md`](assets/screenshots/README.md).
+No demo video was included in the provided folder. The video folder is prepared at [`videos`](videos), and the recommended public demo is:
 
-Recommended screenshot names:
+| Demo Asset | Recommended Content |
+| --- | --- |
+| `videos/app-demo.mp4` | 60-120 second walkthrough covering image processing, audio filtering, visualization, and PDF export. |
+| `videos/report-export-demo.mp4` | Short focused clip showing automatic PDF report generation. |
 
-- `main-window.png`
-- `image-processing.png`
-- `audio-processing.png`
-- `pdf-report.png`
+Large videos can be uploaded to GitHub Releases, Google Drive, or YouTube, then linked here.
 
-## Demo Video
+## Release Download
 
-No demo video file was present in the provided folder. A placeholder and publishing guidance are available in [`videos/README.md`](videos/README.md).
+The standalone Windows executable is approximately 171 MB, so it should be distributed through GitHub Releases or Google Drive instead of being committed directly.
+
+| Release Item | Location / Guidance |
+| --- | --- |
+| Release notes | [`releases/RELEASE_NOTES.md`](releases/RELEASE_NOTES.md) |
+| Local executable copy | `_local_artifacts/executable/DSP_Image_Speech_Studio.exe` |
+| Public distribution | Upload executable to GitHub Releases under tag `v1.0` |
+| QR code asset | [`assets/qr/application-download-qr.png`](assets/qr/application-download-qr.png) |
 
 ## Installation
-
-Clone the repository:
 
 ```bash
 git clone https://github.com/YourUsername/DSP-Image-Speech-Processing-Studio.git
@@ -138,27 +195,22 @@ pip install -r requirements.txt
 python src/main.py
 ```
 
-The application expects image files in common formats such as PNG/JPG/BMP and audio files in WAV format.
+The application expects image files in common image formats and audio files in WAV format.
 
 ## Requirements
-
-- Windows 64-bit recommended.
-- Python 3.10 or newer.
-- A working audio output device for playback.
-- Python packages listed in [`requirements.txt`](requirements.txt).
-
-Core libraries:
 
 | Library | Purpose |
 | --- | --- |
 | PyQt5 | Desktop GUI |
 | OpenCV | Image processing |
-| NumPy | Array operations |
-| SciPy | DSP filters and spectrograms |
+| NumPy | Numerical operations |
+| SciPy | DSP filtering and spectrograms |
 | Matplotlib | Waveform and spectrogram plots |
 | SoundFile | WAV loading and saving |
 | SoundDevice | Audio playback |
 | ReportLab | PDF report generation |
+
+Windows 64-bit and Python 3.10 or newer are recommended.
 
 ## Project Structure
 
@@ -168,43 +220,52 @@ DSP-Image-Speech-Processing-Studio/
 │   ├── icons/
 │   ├── qr/
 │   └── screenshots/
+│       ├── gui/
+│       ├── image-processing/
+│       ├── audio-processing/
+│       ├── reports/
+│       └── workflow/
 ├── docs/
 │   ├── generated-reports/
 │   ├── legacy/
 │   ├── presentation/
-│   └── report/
+│   ├── report/
+│   ├── use-cases/
+│   ├── screenshots.md
+│   ├── use-cases.md
+│   └── workflow.md
 ├── releases/
-│   └── RELEASE_NOTES.md
 ├── samples/
-│   ├── audio/
-│   └── images/
 ├── src/
 │   └── main.py
 ├── videos/
-├── .gitignore
 ├── CONTRIBUTING.md
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
 
-Large local-only files such as the standalone executable and PyInstaller build output are preserved under `_local_artifacts/` and ignored by Git.
-
-## Application Access / Release Notes
-
-The standalone Windows executable is approximately 171 MB, so it should be distributed through GitHub Releases or Google Drive instead of being committed directly to the repository.
-
-See [`releases/RELEASE_NOTES.md`](releases/RELEASE_NOTES.md) for the v1.0 final release notes and binary distribution guidance.
-
-The project QR code is stored in [`assets/qr/application-download-qr.png`](assets/qr/application-download-qr.png).
+Large local-only files such as the executable and PyInstaller build output are preserved under `_local_artifacts/` and ignored by Git.
 
 ## Academic Deliverables
 
-- Final report: [`docs/report/digital-signal-processing-report.pdf`](docs/report/digital-signal-processing-report.pdf)
-- Editable report: [`docs/report/digital-signal-processing-report.docx`](docs/report/digital-signal-processing-report.docx)
-- Presentation PDF: [`docs/presentation/image-speech-processing-studio.pdf`](docs/presentation/image-speech-processing-studio.pdf)
-- Presentation deck: [`docs/presentation/image-speech-processing-studio.pptx`](docs/presentation/image-speech-processing-studio.pptx)
-- Generated PDF examples: [`docs/generated-reports`](docs/generated-reports)
+| Deliverable | Link |
+| --- | --- |
+| Final report PDF | [`docs/report/digital-signal-processing-report.pdf`](docs/report/digital-signal-processing-report.pdf) |
+| Editable report DOCX | [`docs/report/digital-signal-processing-report.docx`](docs/report/digital-signal-processing-report.docx) |
+| Presentation PDF | [`docs/presentation/image-speech-processing-studio.pdf`](docs/presentation/image-speech-processing-studio.pdf) |
+| Presentation PPTX | [`docs/presentation/image-speech-processing-studio.pptx`](docs/presentation/image-speech-processing-studio.pptx) |
+| Generated report examples | [`docs/generated-reports`](docs/generated-reports) |
+
+## Educational Value
+
+This project is useful for DSP teaching because it connects theory to interaction:
+
+- Students can tune filter parameters and observe the result immediately.
+- Image and audio workflows show that DSP concepts apply across signal types.
+- Waveforms and spectrograms make abstract frequency behavior visible.
+- PDF export turns experiments into submission-ready reports.
+- The repository structure demonstrates how academic code can become a public portfolio project.
 
 ## Team Members
 
@@ -227,11 +288,11 @@ The project QR code is stored in [`assets/qr/application-download-qr.png`](asset
 
 ## Future Improvements
 
-- Add average, bilateral, and Laplacian filters to expand the image-processing module.
-- Add a true band-stop/notch filter mode for audio workflows.
-- Add automated unit tests for filter functions and report export.
-- Split the single GUI file into smaller modules for long-term maintainability.
+- Add average, bilateral, and Laplacian image filters.
+- Add a true band-stop/notch audio filter.
 - Add official screenshots and a short demo video.
+- Add automated tests for DSP helper functions and report export.
+- Split the GUI into smaller maintainable modules.
 - Add a PyInstaller build workflow and release checklist.
 
 ## License

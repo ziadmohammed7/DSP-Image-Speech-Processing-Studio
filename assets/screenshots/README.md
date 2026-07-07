@@ -1,12 +1,17 @@
 # Screenshots
 
-No final GUI screenshots were included in the provided project folder.
+This folder is reserved for real application screenshots used by the GitHub README, portfolio posts, academic review, and release notes.
 
-Place polished screenshots here before publishing the repository publicly. Recommended files:
+No GUI screenshots were included in the provided project folder, so the repository currently uses documentation placeholders only. Do not add generated or mock screenshots here unless they are clearly labeled as mockups. For the public README, use real screenshots captured from the running PyQt5 application.
 
-- `main-window.png` - full application window after launch.
-- `image-processing.png` - image input/output processing view.
-- `audio-processing.png` - waveform and spectrogram processing view.
-- `pdf-report.png` - exported report preview.
+## Folder Layout
 
-After adding screenshots, update the Screenshots section in the root `README.md` to embed them with Markdown image links.
+| Folder | Purpose |
+| --- | --- |
+| `gui/` | Main window, splash screen, and full application layout. |
+| `image-processing/` | Image tab, noise reduction, edge detection, and contrast enhancement screenshots. |
+| `audio-processing/` | Audio tab, waveform visualization, spectrogram analysis, and playback controls. |
+| `reports/` | PDF export dialog and generated report previews. |
+| `workflow/` | Project structure, release page, installation flow, or end-to-end workflow visuals. |
+
+See [`../../docs/screenshots.md`](../../docs/screenshots.md) for the complete screenshot checklist and recommended README placement.

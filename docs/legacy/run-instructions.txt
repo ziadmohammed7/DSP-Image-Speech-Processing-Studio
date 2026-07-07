@@ -1,0 +1,73 @@
+How to Run the Application
+--------------------------
+
+1. Open the folder:
+   01_Application_Executable
+
+2. Double-click on:
+   DSP_Image_Speech_Studio.exe
+
+3. The application will start directly.
+   No Python installation is required.
+
+--------------------------------------------------
+
+Using Image Processing Features
+-------------------------------
+
+1. Select the "Image" tab.
+2. Click "Load Image" to open an image file.
+3. Choose a processing method:
+   - Gaussian Filter
+   - Median Filter
+   - Edge Detection (Canny)
+4. Adjust parameters such as Kernel Size.
+5. Click "Apply" to process the image.
+6. The input and output images will be displayed side by side.
+7. Click "Save Output" to save the processed image.
+
+--------------------------------------------------
+
+Using Audio / Speech Processing Features
+----------------------------------------
+
+1. Select the "Audio" tab.
+2. Click "Load WAV" to open an audio file (.wav).
+3. Choose a filter type:
+   - Low-Pass Filter (Noise Reduction)
+   - Speech Noise Removal
+   - Remove 50Hz Electrical Hum
+4. Adjust parameters such as Cutoff Frequency and Filter Order.
+5. Click "Apply Filter".
+6. Use:
+   - Play Input
+   - Play Output
+7. Save the processed audio using "Save Output WAV".
+
+--------------------------------------------------
+
+PDF Report Generation
+---------------------
+
+1. After processing images or audio, click:
+   "Export PDF Report"
+2. A PDF report will be generated automatically.
+3. The report includes:
+   - Input and output screenshots
+   - Applied DSP techniques
+   - Selected parameters
+   - Observations and results
+
+--------------------------------------------------
+
+Notes:
+- The application supports WAV audio format only.
+- Recommended audio sample rate: 44.1 kHz.
+- The executable is tested on Windows 64-bit systems.
+
+--------------------------------------------------
+
+For Source Code Review:
+- Navigate to:
+  02_Source_Build
+- Open the Python (.py) files using any code editor.

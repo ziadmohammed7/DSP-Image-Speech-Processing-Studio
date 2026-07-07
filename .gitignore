@@ -1,0 +1,56 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging and build outputs
+build/
+dist/
+*.egg-info/
+*.spec
+*.manifest
+*.pkg
+*.pyz
+*.toc
+base_library.zip
+xref-*.html
+warn-*.txt
+
+# Local-only large artifacts preserved outside the public repo
+_local_artifacts/
+
+# Runtime exports and temporary output
+processed*.png
+processed*.jpg
+output_filtered*.wav
+DSP_Report*.pdf
+exports/
+output/
+tmp/
+temp/
+
+# Logs
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.code-workspace
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

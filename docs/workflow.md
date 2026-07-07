@@ -2,6 +2,8 @@
 
 The application follows a clear DSP workflow: load an input, preprocess it, apply DSP operations, visualize the result, save outputs, and export a report.
 
+![Application Workflow](../assets/diagrams/workflow-diagram.png)
+
 ## End-to-End Flow
 
 ```mermaid

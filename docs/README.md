@@ -21,6 +21,9 @@ This folder contains academic and generated documentation for Image & Speech Pro
 - Screenshot guide: `screenshots.md`
 - Use-case matrix: `use-cases.md`
 - Workflow explanation: `workflow.md`
+- Architecture guide: `architecture.md`
+- Demo GIF guide: `demo-gif.md`
+- Visual branding guide: `branding.md`
 
 Generated PDF report examples are useful for showing the application's automatic reporting output.
 
@@ -29,3 +32,6 @@ Generated PDF report examples are useful for showing the application's automatic
 - [`screenshots.md`](screenshots.md) explains every screenshot needed for a polished README and release page.
 - [`use-cases.md`](use-cases.md) maps the application features to real-world academic, image-processing, audio-processing, reporting, and deployment scenarios.
 - [`workflow.md`](workflow.md) explains the end-to-end flow from user input to PDF export.
+- [`architecture.md`](architecture.md) documents the system layers and module responsibilities.
+- [`demo-gif.md`](demo-gif.md) explains how to record or replace the README demo GIF.
+- [`branding.md`](branding.md) defines colors, screenshot rules, naming conventions, and GitHub social-preview guidance.

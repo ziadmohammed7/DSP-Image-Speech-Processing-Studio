@@ -2,7 +2,7 @@
 
 This folder is reserved for real application screenshots used by the GitHub README, portfolio posts, academic review, and release notes.
 
-No GUI screenshots were included in the provided project folder, so the repository currently uses documentation placeholders only. Do not add generated or mock screenshots here unless they are clearly labeled as mockups. For the public README, use real screenshots captured from the running PyQt5 application.
+Core GUI, image-processing, audio-processing, report, and workflow screenshots have been captured from the real application or generated from real repository/report assets. Do not add generated or mock application screenshots unless they are clearly labeled as mockups.
 
 ## Folder Layout
 
